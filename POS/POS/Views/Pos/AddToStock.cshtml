@@ -1,0 +1,39 @@
+﻿@model List<PosClassLibrary.Stock>
+@{
+    ViewBag.Title = "AddToStock";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Increase a existing item's stock</h2>
+<h4 id="WordSpaccingId">Item_name Quantity</h4>
+
+
+@foreach (var products in Model)
+{
+    <table class="tableone">
+
+        <tbody>
+            <tr>
+
+                <td>@products.Item.Name</td>
+                <td>@products.Quantity</td>
+                <td>
+                    @using (Html.BeginForm("IncreaseStock", "Pos", new { itemId = products.ItemId }))
+                    {
+                        <label for="quantity">Enter quantity</label>
+                        @Html.TextBox("quantity")
+                        <button type="submit" class="btn btn-primary">Add to stock</button>
+                    }
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+}
+@using (Html.BeginForm("Admin", "Pos"))
+{
+    <button type="submit" class="buttonOne"> GO BACK TO ADMIN'S OPTIONS </button>
+}
+
+
+

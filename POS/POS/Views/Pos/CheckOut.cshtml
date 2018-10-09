@@ -1,0 +1,38 @@
+﻿@model List<PosClassLibrary.BoughtItem>
+@{
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var a = 0;
+}
+
+<h2>Your Bought Items</h2>
+<h5 class="WordSpaccing">  Item_Name Unit_Price Quantity Total_Price </h5>
+@foreach (var boughtItems in Model)
+{
+
+    <table>
+        <tr>
+
+            <td class="paddingBetweenCols"> @boughtItems.Item.Name </td>
+            <td class="paddingBetweenCols"> @boughtItems.Item.Price </td>
+            <td class="paddingBetweenCols"> @boughtItems.Quantity</td>
+            <td class="paddingBetweenCols"> @(boughtItems.Quantity * boughtItems.Item.Price) </td>
+
+        </tr>
+    </table>
+    a += (@boughtItems.Quantity * @boughtItems.Item.Price);
+}
+<div>
+    <h4>Grand Total: @a BDT</h4>
+</div>
+<div>
+    @using (Html.BeginForm("ShopAgain", "Pos"))
+    {
+        <button type="submit" class="btn btn-primary"> Shop again</button>
+    }
+</div>
+
+@using (Html.BeginForm("Index", "Pos"))
+{
+    <button type="submit" class="buttonOne"> Go back to Home</button>
+}

@@ -1,0 +1,36 @@
+﻿@model List<PosClassLibrary.Stock>
+@{
+    ViewBag.Title = "SuccessOfAddedItem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>You have successfully added a new item</h4>
+
+<h4 class="WordSpaccing">Item_name Price Quantity</h4>
+
+@foreach (var products in Model)
+{
+    <table class="tableone">
+
+        <tbody>
+            <tr>
+                <td class="paddingBetweenCols">@products.Item.Name</td>
+                <td class="paddingBetweenCols">@products.Item.Price</td>
+                <td class="paddingBetweenCols">@products.Quantity</td>
+
+
+
+            </tr>
+        </tbody>
+    </table>
+}
+
+
+@using (Html.BeginForm("GetNewItem", "Pos"))
+{
+    <button type="submit" class="buttonOne">Add a another new item!</button>
+}
+@using (Html.BeginForm("Admin", "POS"))
+{
+    <button type="submit" class="buttonOne">Go back to admin's options</button>
+}

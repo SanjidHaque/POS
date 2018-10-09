@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Point of Sale";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>
+    Choose your user type
+</h4>
+
+@using (Html.BeginForm("Admin", "Pos"))
+{
+    <button type="submit" class="btn btn-primary">Admin</button>
+}
+
+@using (Html.BeginForm("Customer", "Pos"))
+{
+    <button type="submit" class="btn btn-primary">Customer</button>
+}

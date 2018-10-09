@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "AlreadyExists";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>The item  is already exists in stock!</h4>
+@using (Html.BeginForm("AddToStock", "Pos"))
+{
+    <button type="submit" class="buttonOne"> Try to increase this items quantity to its existing stock</button>
+}
+

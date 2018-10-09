@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "AddNewItem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add a new Item</h2>
+@using (Html.BeginForm("AddNewItem", "POS"))
+{
+    <label for="itemName">Enter the item's name</label>
+    @Html.TextBox("itemName")
+
+    <label for="itemPrice">Enter the item's price</label>
+    @Html.TextBox("itemPrice")
+
+    <label for="quantity">Enter the item's quantity</label>
+    @Html.TextBox("quantity")
+
+
+    <button type="submit" class="btn btn-primary">ADD TO ITEM'S LIST</button>
+}
+
+

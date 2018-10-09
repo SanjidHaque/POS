@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Admin</h2>
+
+@using (Html.BeginForm("GetNewItem", "Pos"))
+{
+    <button type="submit" class="btn btn-primary"> Add a new item</button>
+}
+@using (Html.BeginForm("AddToStock", "Pos"))
+{
+    <button type="submit" class="btn btn-primary"> Increase stock to an existing item</button>
+}
+@using (Html.BeginForm("Index", "Pos"))
+{
+    <button type="submit" class="buttonOne"> Go back to Home</button>
+}
+
+

@@ -1,0 +1,44 @@
+﻿@model List<PosClassLibrary.Stock>
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Our products</h2>
+
+@foreach (var products in Model)
+{
+    <table class="tableone">
+
+        <tbody>
+            <tr>
+                <td>@products.Item.Name</td>
+                <td>@products.Item.Price</td>
+                <td> In stock: @products.Quantity pieces</td>
+                <td>
+                    @using (Html.BeginForm("AddToCart", "Pos", new { ItemId = products.Item.Id }))
+                    {
+                        <label for="quantity">Enter quantity</label>
+                        @Html.TextBox("quantity")
+                        <button type="submit" class="btn btn-primary">Add to cart</button>
+                    }
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+}
+<div>
+    @using (Html.BeginForm("CheckOut", "Pos"))
+    {
+        <button type="submit" class="btn btn-primary">PROCEED TO CHECKOUT</button>
+
+    }
+</div>
+
+@using (Html.BeginForm("Index", "Pos"))
+{
+    <button type="submit" class="buttonOne"> Go back to Home</button>
+}
+
+
